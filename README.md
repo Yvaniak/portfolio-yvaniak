@@ -1,4 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#perso
+
+pour run : docker compose up -d
+
+pour run en rebuildant : docker compose up -d --build
+
+#fin perso
 
 ## Getting Started
 
