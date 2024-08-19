@@ -1,6 +1,6 @@
 services:
-  web:
+  portfolio-yvaniak:
     build: .
     ports:
-      - "80:9000"
+      - "9000:9000"
     restart: unless-stopped
