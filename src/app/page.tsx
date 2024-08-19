@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { redirect } from 'next/navigation';
 
-export default function Page() {
-  redirect('http://yvaniak.fr:3000')
+export default function Home() {
+  return (
+    <p>
+      Hello from my portfolio !
+    </p>
+  );
 }
-
