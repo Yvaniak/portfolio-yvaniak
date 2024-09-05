@@ -4,23 +4,20 @@ import Script from "next/script";
 
 export default function Home() {
   return (
-    <div className="flex  text-black h-screen justify-center items-center  bg-cblue/25 text-cblack select-none">
-      <div className="grid grid-cols-1 place-items-center ">
-        <div className="bg-cblue text-cblack rounded-lg py-4 px-2 flex flex-row mb-10 shadow-md shadow-cblue">
+    <div className="flex  text-black h-screen justify-center items-center  bg-gradient-to-r from-cpurple/25 to-cblue/25 text-cblack">
+      <div className="grid grid-cols-1 place-items-center opacity-100">
+        <div className="bg-gradient-to-r from-cblue to-cpurple text-cblack rounded-lg py-4 px-2 flex flex-row bg-inherit mb-4">
           <p className="flex text-5xl px-2">
             Yvaniak
           </p>
           <p className="flex text-xl items-center px-2">
-            Software
-          </p>
-          <p className="flex text-xl items-center px-2">
-            developer
+            Programer
           </p>
         </div>
-        <div className=" flex flex-row mt-10 scale-90 sm:scale-100 font-bold bg-cblue text-cblack  rounded-lg shadow-md shadow-cblue">
+        <div className=" flex flex-row mt-4 scale-90 sm:scale-100 font-bold bg-gradient-to-r from-cblue to-cpurple text-cblack  rounded-lg">
           <Script src="https://kit.fontawesome.com/a74b1ff343.js" crossOrigin="anonymous"></Script>
           <Link href="https://github.com/Yvaniak"
-            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cblue rounded-lg space-x-2 transition ease-in-out delay-75 hover:scale-105 shadow-md shadow-cblack"
+            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cblue rounded-lg space-x-2 transition ease-in-out delay-75 hover:scale-105"
             rel="noreferrer noopener"
             target="_blank"
 
@@ -30,7 +27,7 @@ export default function Home() {
           </Link>
 
           <Link href="mailto:pro@yvaniak.fr"
-            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cblue rounded-lg space-x-2 transition ease-in-out delay-75 hover:scale-105 shadow-md shadow-cblack"
+            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cmiddle rounded-lg space-x-2 transition ease-in-out delay-75 "
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -40,7 +37,7 @@ export default function Home() {
 
 
           <Link href="https://discord.com/invite/8Xhvt4cm"
-            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cblue rounded-lg space-x-2 transition ease-in-out delay-75 hover:scale-105 shadow-md shadow-cblack"
+            className="flex p-2 my-2 mx-1 sm:mx-2 border-4 border-transparent hover:bg-cblack hover:text-cpurple rounded-lg space-x-2 transition ease-in-out delay-75 "
             rel="noreferrer noopener"
             target="_blank"
           >
