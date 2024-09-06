@@ -1,17 +1,27 @@
 import Buttons from './buttons'
 import Carte from './carte'
+import ContactCarte from './contact-carte'
+import { ModeToggle } from './themeButton'
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <>
+    <div className="static flex justify-center items-center h-screen">
       <div className="grid grid-cols-1 sm:scale-150">
-        <div className="mb-10">
+        <div className="mb-14">
           <Carte />
         </div>
-        <div className="mt-10">
+        <div>
+          <ContactCarte/>
+        </div>
+        <div>
           <Buttons/>
         </div>
       </div>
     </div>
+    <div className="absolute top-10 right-10 sm:right-14">
+      <ModeToggle/>
+    </div>
+    </>
   );
 }
