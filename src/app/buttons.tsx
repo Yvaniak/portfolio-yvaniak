@@ -13,7 +13,7 @@ import { SiDiscord } from '@icons-pack/react-simple-icons'
 export default function Buttons() {
   return (
     <div className="space-x-2">
-      <Button asChild>
+      <Button asChild className=" variant='outline' en mode blanc */"> 
         <Link href="https://github.com/Yvaniak">
           <Github className="mr-2 h-4 w-4"/>
           Github
@@ -26,8 +26,8 @@ export default function Buttons() {
         </Link>
       </Button>
       <Button asChild>
-        <Link href="https://discord.com/invite/8Xhvt4cm">
-          <SiDiscord className="mr-2 h-4 wy-4 wx-4.5 fill-primary/10 stroke-2 stroke-primary-foreground hover:fill-primary/10"/>
+        <Link className="fill-accent-foreground/90 stroke-2 stroke-accent" href="https://discord.com/invite/8Xhvt4cm">
+          <SiDiscord className="mr-2 h-4 wy-4 wx-4.5 fill-primary/10 stroke-2 stroke-primary-foreground"/>
           Discord
         </Link>
       </Button>
