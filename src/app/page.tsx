@@ -4,7 +4,7 @@ import Carte from './carte'
 export default function Home() {
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 sm:scale-150">
         <div className="mb-10">
           <Carte />
         </div>
