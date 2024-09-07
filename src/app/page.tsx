@@ -7,7 +7,7 @@ import { ModeToggle } from './themeButton'
 export default function Home() {
   return (
     <>
-    <div className="static flex justify-center items-center h-screen">
+    <div className="static flex justify-center items-center h-screen select-none">
       <div className="grid grid-cols-1 sm:scale-150">
         <div className="mb-14">
           <Carte />
