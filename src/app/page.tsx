@@ -1,6 +1,7 @@
 import Buttons from './buttons'
 import Carte from './carte'
 import ContactCarte from './contact-carte'
+import Cercle from './cercle'
 import { ModeToggle } from './themeButton'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
           <Buttons/>
         </div>
       </div>
+      <Cercle/>
     </div>
     <div className="absolute top-10 right-10 sm:right-14">
       <ModeToggle/>
