@@ -123,4 +123,5 @@
   * {
     cursor: none;
   }
+  html * {cursor:none;}
 }
