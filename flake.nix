@@ -16,6 +16,21 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+
+        mylib = {
+          update = pkgs.writeShellApplication {
+            name = "update";
+            text = ''
+              pnpm up
+            '';
+          };
+          install_deps = pkgs.writeShellApplication {
+            name = "install_deps";
+            text = ''
+              pnpm i
+            '';
+          };
+        };
       in
       {
 
@@ -28,6 +43,9 @@
               pkgs.nodejs_latest
               pkgs.nodePackages.vscode-langservers-extracted
               pkgs.nodePackages.pnpm
+
+              mylib.update
+              mylib.install_deps
             ];
 
 
