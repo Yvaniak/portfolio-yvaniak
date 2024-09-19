@@ -41,8 +41,12 @@
 
             packages = [
               pkgs.nodejs_latest
-              pkgs.nodePackages.vscode-langservers-extracted
               pkgs.nodePackages.pnpm
+              pkgs.nodePackages.vscode-langservers-extracted
+              pkgs.tailwindcss-language-server
+              pkgs.stylelint-lsp
+              pkgs.typescript-language-server
+              pkgs.deno
 
               mylib.update
               mylib.install_deps
