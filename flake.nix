@@ -24,12 +24,6 @@
               pnpm up
             '';
           };
-          install_deps = pkgs.writeShellApplication {
-            name = "install_deps";
-            text = ''
-              pnpm i
-            '';
-          };
         };
       in
       {
@@ -49,7 +43,6 @@
               pkgs.deno
 
               mylib.update
-              mylib.install_deps
             ];
 
 
