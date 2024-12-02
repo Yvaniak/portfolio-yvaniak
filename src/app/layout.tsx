@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head><meta name="darkreader-lock"/></head>
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
