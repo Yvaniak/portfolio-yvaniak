@@ -24,15 +24,6 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-
-        mylib = {
-          update = pkgs.writeShellApplication {
-            name = "update";
-            text = ''
-              pnpm up
-            '';
-          };
-        };
       in
       {
 
@@ -45,7 +36,7 @@
 
             src = ./.;
 
-            npmDepsHash = "sha256-+7zrNsHcw1dR1cAPVnclxQvxXdykmR0NsAmWMdBQC8E=";
+            npmDepsHash = "sha256-vyCXPjRlu+w8G5YV4BUygU4e8V1tEHR34c22lR0KGNQ=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
@@ -98,14 +89,11 @@
               ({pkgs, config, ...}: {
               packages = [
                 pkgs.nodejs_22
-                pkgs.nodePackages.pnpm
                 pkgs.nodePackages.vscode-langservers-extracted
                 pkgs.tailwindcss-language-server
                 pkgs.stylelint-lsp
                 pkgs.typescript-language-server
                 pkgs.deno
-
-                mylib.update
               ];
 
 
@@ -113,7 +101,7 @@
                 echo "shell pour portfolio"
               '';
 
-              processes.run.exec = "${self.packages.${system}.default}/bin/portfolio-yvaniak";
+              processes.portfolio-yvaniak.exec = "${self.packages.${system}.default}/bin/portfolio-yvaniak";
             })];
         };};
       }
