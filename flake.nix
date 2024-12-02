@@ -45,7 +45,6 @@
             NODE_OPTIONS = "--openssl-legacy-provider";
 
             preBuild = ''
-              ls "${pkgs.google-fonts.override { fonts = [ "Inter" ];}}/share/fonts/truetype/Inter[opsz,wght].ttf"
               cp "${
                 pkgs.google-fonts.override { fonts = [ "Inter" ]; }
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
@@ -98,6 +97,9 @@
 
 
               enterShell = ''
+              cp "${
+                pkgs.google-fonts.override { fonts = [ "Inter" ]; }
+              }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
                 echo "shell pour portfolio"
               '';
 
