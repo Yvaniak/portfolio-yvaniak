@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider";
 
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ["latin"] });
+import localfont from "next/font/local";
+import localFont from "next/font/local";
+const inter = localFont({ src: "./Inter.ttf" });
 
 export const metadata: Metadata = {
   title: "Yvaniak",
