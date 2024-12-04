@@ -9,13 +9,6 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-
-    devenv.url = "github:cachix/devenv";
-  };
-
-  nixConfig = {
-    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-    extra-substituters = "https://devenv.cachix.org";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -81,31 +74,25 @@
           devenv-test = self.devShells.${system}.default.config.test;
         };
         devShells = {
-          # default = pkgs.mkShell {
-          default = inputs.devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [
-              ({pkgs, config, ...}: {
-              packages = [
-                pkgs.nodejs_22
-                pkgs.nodePackages.vscode-langservers-extracted
-                pkgs.tailwindcss-language-server
-                pkgs.stylelint-lsp
-                pkgs.typescript-language-server
-                pkgs.deno
-              ];
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.nodejs_22
+              pkgs.nodePackages.vscode-langservers-extracted
+              pkgs.tailwindcss-language-server
+              pkgs.stylelint-lsp
+              pkgs.typescript-language-server
+              pkgs.deno
+            ];
 
 
-              enterShell = ''
+            shellHook = ''
               cp "${
                 pkgs.google-fonts.override { fonts = [ "Inter" ]; }
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-                echo "shell pour portfolio"
-              '';
-
-              processes.portfolio-yvaniak.exec = "${self.packages.${system}.default}/bin/portfolio-yvaniak";
-            })];
-        };};
+              echo "shell pour portfolio"
+            '';
+            };
+        };
       }
     );
 }
