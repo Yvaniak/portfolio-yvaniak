@@ -2,6 +2,8 @@ name: docker-push
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   docker:
