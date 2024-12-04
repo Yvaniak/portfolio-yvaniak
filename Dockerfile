@@ -16,7 +16,7 @@ WORKDIR /app
 EXPOSE 9000
 
 ENV PORT=9000
-ENV HOSTNAME="0.0.0.0"
+ENV HOSTNAME="test.yvaniak.fr"
 
 COPY --from=builder /tmp/nix-store-closure /nix/store
 COPY --from=builder /tmp/result /app
