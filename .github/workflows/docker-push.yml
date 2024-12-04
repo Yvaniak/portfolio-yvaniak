@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: yvaniak/wordle_yvaniak:latest
+          tags: yvaniak/portfolio-yvaniak:latest
