@@ -7,8 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-
+} from "@/components/ui/card";
 
 export default function Carte() {
   return (
@@ -20,6 +19,5 @@ export default function Carte() {
         <p>Software developer</p>
       </CardFooter>
     </Card>
-
   );
 }

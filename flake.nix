@@ -101,7 +101,7 @@
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
               echo "shell pour portfolio"
             '';
-            };
+          };
         };
       }
     );
