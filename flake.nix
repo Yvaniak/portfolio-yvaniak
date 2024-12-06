@@ -9,6 +9,11 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -17,10 +22,15 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+
+        treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
+        formatter = treefmtEval.config.build.wrapper;
 
-        formatter = pkgs.nixpkgs-fmt;
+        checks = {
+          formatting = treefmtEval.config.build.check self;
+        };
 
         packages = {
           default = pkgs.buildNpmPackage {
