@@ -61,19 +61,20 @@
     --chart-5: 27 87% 67%;
     --radius: 0.75rem;
   }
+
   .dark {
     /* --background: 0 0% 100%; */
-    --background: 201 85% 38%;
+    --background: 222 47.4% 6%;
     --foreground: 222.2 84% 4.9%;
     /* --card: 0 0% 100%; */
-    --card: 222.2 47.4% 11.2%;
+    --card: 222.2 77.4% 76.2%;
     /* --card-foreground: 222.2 84% 4.9%; */
-    --card-foreground: 201 80% 38%;
+    --card-foreground: 222 47% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 222.2 77.4% 76.2%;
     /* --primary-foreground: 210 40% 98%; */
-    --primary-foreground: 201 80% 38%;
+    --primary-foreground: 222 47% 6%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -92,13 +93,14 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.75rem;
-}
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -108,20 +110,27 @@
   .cursor {
     pointer-events: none;
 
-      .cursor__ball {
-        position: fixed;
-        top: 0;
-        left: 0;
-        mix-blend-mode: difference;
-        z-index: 1000;
-      }
+    .cursor__ball {
+      position: fixed;
+      top: 0;
+      left: 0;
+      mix-blend-mode: difference;
+      z-index: 1000;
+    }
 
     circle {
-      fill: #f7f8fa;
+      /* fill: #f7f8fa; */
+      /* fill: hsl(222, 77, 76); */
+      /* fill: var(--card) */
+      fill: #81a2ef;
     }
   }
+
   * {
     cursor: none;
   }
-  html * {cursor:none;}
+
+  html * {
+    cursor: none;
+  }
 }
