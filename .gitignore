@@ -40,3 +40,6 @@ next-env.d.ts
 .devenv
 
 /src/app/Inter.ttf
+
+#vim temp
+*~
