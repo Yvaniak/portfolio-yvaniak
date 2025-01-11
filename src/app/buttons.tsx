@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 //icons
 import React from "react";
 
-import { constClassName } from "../lib/utils.ts";
+import { constClassName } from "@/lib/utils";
 
 export default function Buttons() {
   const { resolvedTheme } = useTheme();
