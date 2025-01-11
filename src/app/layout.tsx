@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import localfont from "next/font/local";
 import localFont from "next/font/local";
+import React from "react";
 const inter = localFont({ src: "./Inter.ttf" });
 
 export const metadata: Metadata = {

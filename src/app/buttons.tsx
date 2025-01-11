@@ -1,28 +1,24 @@
 "use client";
 import Link from "next/link";
 
-//ui
-//buttons
-import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 //icons
-import { Github } from "lucide-react";
-import { Mail } from "lucide-react";
-import { SiDiscord } from "@icons-pack/react-simple-icons";
 import React from "react";
 
+import { constClassName } from "../lib/utils.ts";
+
 export default function Buttons() {
-  const { theme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const [isClient, setIsClient] = useState(false);
+  const [, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -39,7 +35,7 @@ export default function Buttons() {
               ? "default"
               : "outline"
         }
-        className=" hoverable"
+        className={"hoverable" + constClassName}
       >
         <Link target="_blank" href="https://github.com/Yvaniak">
           {/*<Github className="mr-2 h-4 w-4" />*/}
@@ -96,7 +92,7 @@ export default function Buttons() {
               ? "default"
               : "outline"
         }
-        className=" hoverable"
+        className={"hoverable" + constClassName}
       >
         <Link target="_blank" href="mailto:pro@yvaniak.fr">
           {/*<Mail className="mr-2 h-4 w-4" />*/}
@@ -153,7 +149,7 @@ export default function Buttons() {
               ? "default"
               : "outline"
         }
-        className=" hoverable"
+        className={"hoverable" + constClassName}
       >
         <Link
           target="_blank"

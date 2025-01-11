@@ -27,9 +27,9 @@
     /* --background: 0 0% 100%; */
     --background: 201 85% 38%;
     --foreground: 222.2 84% 4.9%;
-    /* --card: 0 0% 100%; */
+    --card: 0 0% 100%;
     /* --card: 222.2 47.4% 11.2%; */
-    --card: 201 80% 38%;
+    /* --card: 201 80% 38%; */
     /* --card-foreground: 222.2 84% 4.9%; */
     /* --card-foreground: 201 80% 38%; */
     --card-foreground: 222.2 84% 4.9%;
@@ -64,16 +64,17 @@
 
   .dark {
     /* --background: 0 0% 100%; */
-    --background: 222 47.4% 6%;
-    --foreground: 222.2 84% 4.9%;
+    --background: black;
+    --foreground: white;
+    --button: white;
     /* --card: 0 0% 100%; */
-    --card: 222.2 77.4% 76.2%;
+    --card: black;
     /* --card-foreground: 222.2 84% 4.9%; */
-    --card-foreground: 222 47% 6%;
+    --card-foreground: black;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 77.4% 76.2%;
-    /* --primary-foreground: 210 40% 98%; */
+    /* --primary: 222.2 77.4% 76.2%; */
+    --primary-foreground: black;
     --primary-foreground: 222 47% 6%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;

@@ -9,9 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { constClassName } from "@/lib/utils";
 export default function Carte() {
   return (
-    <Card>
+    <Card className={constClassName}>
       <CardHeader>
         <CardTitle>Yvaniak</CardTitle>
       </CardHeader>
