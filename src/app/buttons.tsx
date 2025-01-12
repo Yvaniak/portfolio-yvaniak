@@ -35,7 +35,9 @@ export default function Buttons() {
               ? "default"
               : "outline"
         }
-        className={"hoverable" + " dark:text-black dark:bg-white bg-black text-white"}
+        className={
+          "hoverable" + " dark:text-black dark:bg-white bg-black text-white"
+        }
       >
         <Link target="_blank" href="https://github.com/Yvaniak">
           {/*<Github className="mr-2 h-4 w-4" />*/}
