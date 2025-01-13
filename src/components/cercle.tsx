@@ -1,6 +1,7 @@
 "use client";
 import gsap from "gsap";
-import { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect, MouseEvent } from "react";
 
 export default function Cercle() {
   const [mounted, setMounted] = useState(false);
@@ -9,9 +10,9 @@ export default function Cercle() {
     setMounted(true);
   }, []);
 
-  var $ball: Element | null;
-  var $hoverables: NodeListOf<Element> | null;
-  var $smallBall: Element | null;
+  let $ball: Element | null;
+  let $hoverables: NodeListOf<Element> | null;
+  let $smallBall: Element | null;
   //variables
   if (typeof document !== "undefined") {
     $ball = document.querySelector(".cursor__ball--big");
@@ -19,7 +20,12 @@ export default function Cercle() {
     $hoverables = document.querySelectorAll(".hoverable");
 
     //listeners
-    document.body.addEventListener("mousemove", onMouseMove);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      document.body.addEventListener("mousemove", onMouseMove);
+    } else {
+      document.body.addEventListener("touchmove", onMouseMove);
+    }
     for (let i = 0; i < $hoverables.length; i++) {
       $hoverables[i].addEventListener("mouseenter", onMouseHover);
       $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);

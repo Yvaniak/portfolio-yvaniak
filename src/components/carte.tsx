@@ -2,8 +2,8 @@
 //carte
 import {
   Card,
-  CardContent,
-  CardDescription,
+  CardContent as _CardContent,
+  CardDescription as _CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
