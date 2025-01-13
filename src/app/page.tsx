@@ -1,7 +1,8 @@
-import Buttons from "./buttons";
-import Carte from "./carte";
-import ContactCarte from "./contact-carte";
-import Cercle from "./cercle";
+import Buttons from "@/components/buttons";
+import Carte from "@/components/carte";
+
+import ContactCarte from "@/components/contact-carte";
+import Cercle from "@/components/cercle";
 import { ModeToggle } from "./themeButton";
 
 export default function Home() {
