@@ -10,7 +10,11 @@ import React from "react";
 
 import { constClassName } from "@/lib/utils";
 
-import { MingcuteGithubFill, MingcuteMailFill, MingcuteDiscordFill } from "@/components/icons";
+import {
+  MingcuteGithubFill,
+  MingcuteMailFill,
+  MingcuteDiscordFill,
+} from "@/components/icons";
 
 export default function Buttons() {
   const { resolvedTheme } = useTheme();
@@ -43,8 +47,7 @@ export default function Buttons() {
       >
         <Link target="_blank" href="https://github.com/Yvaniak">
           {/*<Github className="mr-2 h-4 w-4" />*/}
-          {MingcuteGithubFill({className: "mr-1"}) }
-
+          {MingcuteGithubFill({ className: "mr-1" })}
           Github
         </Link>
       </Button>
@@ -61,7 +64,7 @@ export default function Buttons() {
       >
         <Link target="_blank" href="mailto:pro@yvaniak.fr">
           {/*<Mail className="mr-2 h-4 w-4" />*/}
-          {MingcuteMailFill({className: "mr-1"})}
+          {MingcuteMailFill({ className: "mr-1" })}
           Email
         </Link>
       </Button>
@@ -81,7 +84,7 @@ export default function Buttons() {
           className="fill-accent-foreground/90 stroke-2 stroke-accent"
           href="https://discord.com/invite/8Xhvt4cm"
         >
-          {MingcuteDiscordFill({className: "mr-1"})}
+          {MingcuteDiscordFill({ className: "mr-1" })}
           Discord
         </Link>
       </Button>
