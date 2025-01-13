@@ -6,7 +6,7 @@ import { ModeToggle } from "./themeButton";
 
 export default function Home() {
   return (
-    <>
+    // <>
       <div className="static flex justify-center items-center h-screen select-none">
         <div className="grid grid-cols-1 sm:scale-150">
           <div className="mb-14">
@@ -21,9 +21,11 @@ export default function Home() {
         </div>
         <Cercle />
       </div>
-      <div className="absolute top-10 right-10 sm:right-14">
-        <ModeToggle />
-      </div>
-    </>
+      // {
+      // <div className="absolute top-10 right-10 sm:right-14">
+      //   <ModeToggle />
+      // </div>
+    // </>
+    // }
   );
 }

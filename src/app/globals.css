@@ -120,10 +120,7 @@
     }
 
     circle {
-      /* fill: #f7f8fa; */
-      /* fill: hsl(222, 77, 76); */
-      /* fill: var(--card) */
-      fill: #81a2ef;
+      fill: #69696a;
     }
   }
 
