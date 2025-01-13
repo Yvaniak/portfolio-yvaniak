@@ -3,7 +3,7 @@ import Carte from "@/components/carte";
 
 import ContactCarte from "@/components/contact-carte";
 import Cercle from "@/components/cercle";
-import { ModeToggle } from "./themeButton";
+// import { ModeToggle } from "@/components/themeButton";
 
 export default function Home() {
   return (
