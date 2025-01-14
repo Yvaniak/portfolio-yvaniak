@@ -1,8 +1,6 @@
 "use client";
 import gsap from "gsap";
-import React from "react";
-import { useState, useEffect, MouseEvent } from "react";
-
+import { useState, useEffect } from "react";
 export default function Cercle() {
   const [mounted, setMounted] = useState(false);
 
