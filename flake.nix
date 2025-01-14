@@ -39,7 +39,7 @@
 
             src = ./.;
 
-            npmDepsHash = "sha256-NULP7XM354bvh7F3jHXy6mSIzYYiPRzaQNuJny27mkc=";
+            npmDepsHash = "sha256-rp8Lww2CRPhpZsjGWHCI5eoRiGISgc8IUp9T3xn3FdA=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
