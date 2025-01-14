@@ -85,11 +85,6 @@
           default = pkgs.mkShell {
             packages = [
               pkgs.nodejs_22
-              pkgs.nodePackages.vscode-langservers-extracted
-              pkgs.tailwindcss-language-server
-              pkgs.stylelint-lsp
-              pkgs.typescript-language-server
-              pkgs.deno
             ];
 
 
