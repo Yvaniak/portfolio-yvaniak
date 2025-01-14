@@ -20,12 +20,12 @@ export default function Cercle() {
     $hoverables = document.querySelectorAll(".hoverable");
 
     //listeners
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      document.body.addEventListener("mousemove", onMouseMove);
-    } else {
-      document.body.addEventListener("touchmove", onMouseMove);
-    }
+    // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // if (isMobile) {
+    document.body.addEventListener("mousemove", onMouseMove);
+    // } else {
+    //   document.body.addEventListener("touchmove", onMouseMove);
+    // }
     for (let i = 0; i < $hoverables.length; i++) {
       $hoverables[i].addEventListener("mouseenter", onMouseHover);
       $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);
