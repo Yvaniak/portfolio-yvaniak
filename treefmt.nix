@@ -9,7 +9,6 @@
 
     prettier.enable = true;
 
-    jsonfmt.enable = true;
     yamlfmt.enable = true;
   };
   # Override the default package
