@@ -84,7 +84,7 @@
         devShells = {
           default = pkgs.mkShell {
             packages = [
-              pkgs.nodejs_22
+              pkgs.nodejs_latest
             ];
 
 
