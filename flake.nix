@@ -1,7 +1,5 @@
 {
-
   description = "portfolio yvaniak";
-
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -10,22 +8,30 @@
       url = "github:numtide/flake-utils";
     };
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    devenv = {
+      url = "github:cachix/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    inputs.flake-utils.lib.eachDefaultSystem (system:
-      let
+  nixConfig = {
+    extra-substituters = "https://devenv.cachix.org";
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
+      system: let
         pkgs = import nixpkgs {
           inherit system;
         };
 
         treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-      in
-      {
+      in {
         formatter = treefmtEval.config.build.wrapper;
 
         checks = {
@@ -41,15 +47,15 @@
 
             npmDepsHash = "sha256-oS32rV+CW7yqsZGolNftgneRQ/NIfJzqbce0w3HGVCo=";
 
-            npmPackFlags = [ "--ignore-scripts" ];
+            npmPackFlags = ["--ignore-scripts"];
             makeCacheWritable = true;
-            npmFlags = [ "--legacy-peer-deps" ];
+            npmFlags = ["--legacy-peer-deps"];
 
             NODE_OPTIONS = "--openssl-legacy-provider";
 
             preBuild = ''
               cp "${
-                pkgs.google-fonts.override { fonts = [ "Inter" ]; }
+                pkgs.google-fonts.override {fonts = ["Inter"];}
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
             '';
 
@@ -80,20 +86,39 @@
 
             doDist = false;
           };
+
+          devenv-up = self.devShells.${system}.default.config.procfileScript;
+          devenv-test = self.devShells.${system}.default.config.test;
         };
         devShells = {
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.nodejs_latest
+          default = inputs.devenv.lib.mkShell {
+            inherit inputs pkgs;
+            modules = [
+              ({pkgs, ...}: {
+                languages.javascript = {
+                  enable = true;
+                  package = pkgs.nodejs_latest;
+                  npm.enable = true;
+                  npm.install.enable = true;
+                };
+
+                languages.typescript.enable = true;
+
+                git-hooks.hooks = {
+                  prettier.enable = true;
+
+                  alejandra.enable = true;
+                  commitizen.enable = true;
+                };
+
+                enterShell = ''
+                  test src/app/Inter.ttf || cp "${
+                    pkgs.google-fonts.override {fonts = ["Inter"];}
+                  }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
+                  echo "shell pour portfolio"
+                '';
+              })
             ];
-
-
-            shellHook = ''
-              test src/app/Inter.ttf || cp "${
-                pkgs.google-fonts.override { fonts = [ "Inter" ]; }
-              }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-              echo "shell pour portfolio"
-            '';
           };
         };
       }

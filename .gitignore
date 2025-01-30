@@ -43,3 +43,6 @@ next-env.d.ts
 
 #vim temp
 *~
+
+#pre-commit
+.pre-commit-config.yaml
