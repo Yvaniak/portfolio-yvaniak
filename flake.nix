@@ -106,6 +106,7 @@
 
                 git-hooks.hooks = {
                   prettier.enable = true;
+                  eslint.enable = true;
 
                   alejandra.enable = true;
                   commitizen.enable = true;
