@@ -35,14 +35,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# nix
-.direnv/
-.devenv
-
 /src/app/Inter.ttf
 
 #vim temp
 *~
 
-#pre-commit
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
 .pre-commit-config.yaml

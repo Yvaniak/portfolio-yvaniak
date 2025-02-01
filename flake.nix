@@ -7,21 +7,10 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  nixConfig = {
-    extra-substituters = "https://devenv.cachix.org";
-    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       ...
     }@inputs:
@@ -40,7 +29,7 @@
 
             src = ./.;
 
-            npmDepsHash = "sha256-oS32rV+CW7yqsZGolNftgneRQ/NIfJzqbce0w3HGVCo=";
+            npmDepsHash = "sha256-oA2GtzR0gUvex6jlHYiY4VzoG3zlRZwmPUOtTkjPPYM=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
@@ -80,46 +69,6 @@
             '';
 
             doDist = false;
-          };
-
-          devenv-up = self.devShells.${system}.default.config.procfileScript;
-          devenv-test = self.devShells.${system}.default.config.test;
-        };
-        devShells = {
-          default = inputs.devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [
-              (
-                { pkgs, ... }:
-                {
-                  languages.javascript = {
-                    enable = true;
-                    package = pkgs.nodejs_latest;
-                    npm.enable = true;
-                    npm.install.enable = true;
-                  };
-
-                  languages.typescript.enable = true;
-
-                  git-hooks.hooks = {
-                    prettier.enable = true;
-                    eslint.enable = true;
-
-                    nixfmt-rfc-style.enable = true;
-                    statix.enable = true;
-                    deadnix.enable = true;
-                    commitizen.enable = true;
-                  };
-
-                  enterShell = ''
-                    test src/app/Inter.ttf || cp "${
-                      pkgs.google-fonts.override { fonts = [ "Inter" ]; }
-                    }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-                    echo "shell pour portfolio"
-                  '';
-                }
-              )
-            ];
           };
         };
       }
