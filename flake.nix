@@ -31,16 +31,8 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-
-        treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
-        formatter = treefmtEval.config.build.wrapper;
-
-        checks = {
-          formatting = treefmtEval.config.build.check self;
-        };
-
         packages = {
           default = pkgs.buildNpmPackage {
             pname = "portfolio-yvaniak";
