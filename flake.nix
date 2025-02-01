@@ -19,19 +19,22 @@
     extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
     inputs.flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
         };
 
         treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-      in {
+      in
+      {
         formatter = treefmtEval.config.build.wrapper;
 
         checks = {
@@ -47,15 +50,15 @@
 
             npmDepsHash = "sha256-oS32rV+CW7yqsZGolNftgneRQ/NIfJzqbce0w3HGVCo=";
 
-            npmPackFlags = ["--ignore-scripts"];
+            npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
-            npmFlags = ["--legacy-peer-deps"];
+            npmFlags = [ "--legacy-peer-deps" ];
 
             NODE_OPTIONS = "--openssl-legacy-provider";
 
             preBuild = ''
               cp "${
-                pkgs.google-fonts.override {fonts = ["Inter"];}
+                pkgs.google-fonts.override { fonts = [ "Inter" ]; }
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
             '';
 
@@ -94,31 +97,36 @@
           default = inputs.devenv.lib.mkShell {
             inherit inputs pkgs;
             modules = [
-              ({pkgs, ...}: {
-                languages.javascript = {
-                  enable = true;
-                  package = pkgs.nodejs_latest;
-                  npm.enable = true;
-                  npm.install.enable = true;
-                };
+              (
+                { pkgs, ... }:
+                {
+                  languages.javascript = {
+                    enable = true;
+                    package = pkgs.nodejs_latest;
+                    npm.enable = true;
+                    npm.install.enable = true;
+                  };
 
-                languages.typescript.enable = true;
+                  languages.typescript.enable = true;
 
-                git-hooks.hooks = {
-                  prettier.enable = true;
-                  eslint.enable = true;
+                  git-hooks.hooks = {
+                    prettier.enable = true;
+                    eslint.enable = true;
 
-                  alejandra.enable = true;
-                  commitizen.enable = true;
-                };
+                    nixfmt-rfc-style.enable = true;
+                    statix.enable = true;
+                    deadnix.enable = true;
+                    commitizen.enable = true;
+                  };
 
-                enterShell = ''
-                  test src/app/Inter.ttf || cp "${
-                    pkgs.google-fonts.override {fonts = ["Inter"];}
-                  }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-                  echo "shell pour portfolio"
-                '';
-              })
+                  enterShell = ''
+                    test src/app/Inter.ttf || cp "${
+                      pkgs.google-fonts.override { fonts = [ "Inter" ]; }
+                    }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
+                    echo "shell pour portfolio"
+                  '';
+                }
+              )
             ];
           };
         };
