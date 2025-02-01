@@ -23,6 +23,8 @@
     commitizen.enable = true;
   };
 
+  packages = [ pkgs.nil ];
+
   enterShell = ''
     test src/app/Inter.ttf || cp "${
       pkgs.google-fonts.override { fonts = [ "Inter" ]; }
