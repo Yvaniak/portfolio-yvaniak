@@ -16,6 +16,7 @@
   git-hooks.hooks = {
     prettier.enable = true;
     eslint.enable = true;
+    biome.enable = true;
 
     nixfmt-rfc-style.enable = true;
     statix.enable = true;
