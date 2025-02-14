@@ -11,83 +11,83 @@ import React from "react";
 import { constClassName } from "@/lib/utils";
 
 import {
-  MingcuteGithubFill,
-  MingcuteMailFill,
-  MingcuteDiscordFill,
+	MingcuteDiscordFill,
+	MingcuteGithubFill,
+	MingcuteMailFill,
 } from "@/components/icons";
 
 export default function Buttons() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+	const { resolvedTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
-  const [, setIsClient] = useState(false);
+	const [, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
 
-  return (
-    <div className="space-x-2">
-      <Button
-        asChild
-        variant={
-          !mounted
-            ? "default"
-            : resolvedTheme === "dark"
-              ? "default"
-              : "outline"
-        }
-        className={
-          "hoverable" + " dark:text-black dark:bg-white bg-black text-white"
-        }
-      >
-        <Link target="_blank" href="https://github.com/Yvaniak">
-          {/*<Github className="mr-2 h-4 w-4" />*/}
-          {MingcuteGithubFill({ className: "mr-1" })}
-          Github
-        </Link>
-      </Button>
-      <Button
-        asChild
-        variant={
-          !mounted
-            ? "default"
-            : resolvedTheme === "dark"
-              ? "default"
-              : "outline"
-        }
-        className={"hoverable" + constClassName}
-      >
-        <Link target="_blank" href="mailto:pro@yvaniak.fr">
-          {/*<Mail className="mr-2 h-4 w-4" />*/}
-          {MingcuteMailFill({ className: "mr-1" })}
-          Email
-        </Link>
-      </Button>
-      <Button
-        asChild
-        variant={
-          !mounted
-            ? "default"
-            : resolvedTheme === "dark"
-              ? "default"
-              : "outline"
-        }
-        className={"hoverable" + constClassName}
-      >
-        <Link
-          target="_blank"
-          className="fill-accent-foreground/90 stroke-2 stroke-accent"
-          href="https://discord.com/invite/8Xhvt4cm"
-        >
-          {MingcuteDiscordFill({ className: "mr-1" })}
-          Discord
-        </Link>
-      </Button>
-    </div>
-  );
+	return (
+		<div className="space-x-2">
+			<Button
+				asChild
+				variant={
+					!mounted
+						? "default"
+						: resolvedTheme === "dark"
+							? "default"
+							: "outline"
+				}
+				className={
+					"hoverable" + " dark:text-black dark:bg-white bg-black text-white"
+				}
+			>
+				<Link target="_blank" href="https://github.com/Yvaniak">
+					{/*<Github className="mr-2 h-4 w-4" />*/}
+					{MingcuteGithubFill({ className: "mr-1" })}
+					Github
+				</Link>
+			</Button>
+			<Button
+				asChild
+				variant={
+					!mounted
+						? "default"
+						: resolvedTheme === "dark"
+							? "default"
+							: "outline"
+				}
+				className={`hoverable${constClassName}`}
+			>
+				<Link target="_blank" href="mailto:pro@yvaniak.fr">
+					{/*<Mail className="mr-2 h-4 w-4" />*/}
+					{MingcuteMailFill({ className: "mr-1" })}
+					Email
+				</Link>
+			</Button>
+			<Button
+				asChild
+				variant={
+					!mounted
+						? "default"
+						: resolvedTheme === "dark"
+							? "default"
+							: "outline"
+				}
+				className={`hoverable${constClassName}`}
+			>
+				<Link
+					target="_blank"
+					className="fill-accent-foreground/90 stroke-2 stroke-accent"
+					href="https://discord.com/invite/8Xhvt4cm"
+				>
+					{MingcuteDiscordFill({ className: "mr-1" })}
+					Discord
+				</Link>
+			</Button>
+		</div>
+	);
 }

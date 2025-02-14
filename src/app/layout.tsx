@@ -6,35 +6,35 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 
 import localFont from "next/font/local";
-import React from "react";
+import type React from "react";
 const inter = localFont({ src: "./Inter.ttf" });
 
 export const metadata: Metadata = {
-  title: "Yvaniak",
-  description: "my simple portfolio",
+	title: "Yvaniak",
+	description: "my simple portfolio",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="darkreader-lock" />
-      </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Analytics />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<head>
+				<meta name="darkreader-lock" />
+			</head>
+			<body className={inter.className}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+					<Analytics />
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }
