@@ -1,7 +1,5 @@
 {
-
   description = "portfolio yvaniak";
-
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -9,29 +7,21 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    inputs.flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      nixpkgs,
+      ...
+    }@inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs {
           inherit system;
         };
-
-        treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
-        formatter = treefmtEval.config.build.wrapper;
-
-        checks = {
-          formatting = treefmtEval.config.build.check self;
-        };
-
         packages = {
           default = pkgs.buildNpmPackage {
             pname = "portfolio-yvaniak";
@@ -39,7 +29,7 @@
 
             src = ./.;
 
-            npmDepsHash = "sha256-oS32rV+CW7yqsZGolNftgneRQ/NIfJzqbce0w3HGVCo=";
+            npmDepsHash = "sha256-oA2GtzR0gUvex6jlHYiY4VzoG3zlRZwmPUOtTkjPPYM=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
@@ -79,21 +69,6 @@
             '';
 
             doDist = false;
-          };
-        };
-        devShells = {
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.nodejs_latest
-            ];
-
-
-            shellHook = ''
-              test src/app/Inter.ttf || cp "${
-                pkgs.google-fonts.override { fonts = [ "Inter" ]; }
-              }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-              echo "shell pour portfolio"
-            '';
           };
         };
       }

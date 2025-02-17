@@ -1,4 +1,4 @@
-FROM nixos/nix AS builder
+FROM docker.io/nixos/nix AS builder
 
 WORKDIR /tmp
 
