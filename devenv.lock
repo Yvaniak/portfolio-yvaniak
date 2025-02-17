@@ -1,12 +1,27 @@
 {
   "nodes": {
+    "advisory-db": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739520703,
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "rev": "ddccfe8aced779f7b54d27bbe7e122ecb1dda33a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "type": "github"
+      }
+    },
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1739444039,
+        "lastModified": 1739820156,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "1235cd13f47df6ad19c8a183c6eabc1facb7c399",
+        "rev": "8ba5a73a8433eaf428465ddb80453f1e34334c13",
         "type": "github"
       },
       "original": {
@@ -17,11 +32,14 @@
       }
     },
     "devenvs": {
+      "inputs": {
+        "advisory-db": "advisory-db"
+      },
       "locked": {
-        "lastModified": 1739647420,
+        "lastModified": 1739823764,
         "owner": "yvaniak",
         "repo": "devenvs",
-        "rev": "ec4d7a4209feeb2ea7ce37a331bd0c474180ab3a",
+        "rev": "37139b53f858dc7e21517fc9ea72375b72b50ddf",
         "type": "github"
       },
       "original": {

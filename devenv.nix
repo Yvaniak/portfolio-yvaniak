@@ -6,7 +6,7 @@
 
 {
   imports = [
-    inputs.devenvs.homeManagerModules.devenvs.default
+    inputs.devenvs.devenvModules.devenvs.default
   ];
   ts.enable = true;
   ts.biome.enable = true;
