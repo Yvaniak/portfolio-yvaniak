@@ -10,14 +10,11 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      ...
-    }@inputs:
+    inputs:
     inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
+        pkgs = import inputs.nixpkgs {
           inherit system;
         };
       in
@@ -29,7 +26,8 @@
 
             src = ./.;
 
-            npmDepsHash = "sha256-oA2GtzR0gUvex6jlHYiY4VzoG3zlRZwmPUOtTkjPPYM=";
+            # npmDepsHash = "sha256-oA2GtzR0gUvex6jlHYiY4VzoG3zlRZwmPUOtTkjPPYM=";
+            npmDepsHash = "sha256-Smttf+3dGmgoLlfXZXRSirGRxpS1cLSE9eKeE2sOibw=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
