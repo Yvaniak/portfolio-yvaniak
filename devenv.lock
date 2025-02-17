@@ -18,10 +18,10 @@
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1739820156,
+        "lastModified": 1739828044,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "8ba5a73a8433eaf428465ddb80453f1e34334c13",
+        "rev": "2420f228e24bb578eeb0fd75d1238b99edb518ff",
         "type": "github"
       },
       "original": {
@@ -36,10 +36,10 @@
         "advisory-db": "advisory-db"
       },
       "locked": {
-        "lastModified": 1739823764,
+        "lastModified": 1739829271,
         "owner": "yvaniak",
         "repo": "devenvs",
-        "rev": "37139b53f858dc7e21517fc9ea72375b72b50ddf",
+        "rev": "2c61668c95652000ed0ea23ec5919a75f73cc13c",
         "type": "github"
       },
       "original": {

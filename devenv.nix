@@ -11,6 +11,7 @@
   ts.enable = true;
   ts.biome.enable = true;
   nix.enable = true;
+  nix.nix-build.enable = true;
 
   enterShell = ''
     test src/app/Inter.ttf || cp "${
