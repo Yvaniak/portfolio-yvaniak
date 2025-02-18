@@ -26,8 +26,7 @@
 
             src = ./.;
 
-            # npmDepsHash = "sha256-oA2GtzR0gUvex6jlHYiY4VzoG3zlRZwmPUOtTkjPPYM=";
-            npmDepsHash = "sha256-Smttf+3dGmgoLlfXZXRSirGRxpS1cLSE9eKeE2sOibw=";
+            npmDepsHash = "sha256-eJlFU0j+6dmWobk/g6AwE1XH/FlkU30QYBxOGnZAlC4=";
 
             npmPackFlags = [ "--ignore-scripts" ];
             makeCacheWritable = true;
