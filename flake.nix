@@ -76,17 +76,20 @@
           };
           devenv.shells.default = {
             imports = [ inputs.devenvs.flakeModule ];
-            ts = {
-              enable = true;
-              biome.enable = true;
-              tests.enable = true;
-            };
-            nix = {
-              enable = true;
-              flake.enable = true;
-              tests.enable = true;
-            };
+            devenvs = {
+              ts = {
+                enable = true;
+                biome.enable = true;
+                tests.enable = true;
+                script-lint.enable = true;
+              };
+              nix = {
+                enable = true;
+                flake.enable = true;
+                tests.enable = true;
+              };
 
+            };
             enterShell = ''
               test src/app/Inter.ttf || cp "${
                 pkgs.google-fonts.override { fonts = [ "Inter" ]; }

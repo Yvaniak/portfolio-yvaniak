@@ -77,11 +77,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1739967529,
-        "narHash": "sha256-PBI35+lLO9F1y5ixqToD4TeQ57mxJZNfoworr+e452o=",
+        "lastModified": 1739993301,
+        "narHash": "sha256-ReDPxoU1X8WSIGZw8xrjmyLiQ037C3OhVcUPPRCsJJw=",
         "owner": "yvaniak",
         "repo": "devenvs",
-        "rev": "a067c7f9d783f539c514ed60bf5bd53848f0ffc3",
+        "rev": "83edd60daba266627d76c5a915a5d4b67d8ddb6e",
         "type": "github"
       },
       "original": {
