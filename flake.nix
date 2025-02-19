@@ -32,7 +32,7 @@
 
               src = ./.;
 
-              npmDepsHash = "sha256-HEmw17uCIi7Yl2fW+M5R5kxJbZfpplTrUs0tubXpm3w=";
+              npmDepsHash = "sha256-cCf2geqNG8o4SXLj3O8cyJSJxNvO7hC6j58vUT2wpuI=";
 
               npmPackFlags = [ "--ignore-scripts" ];
               makeCacheWritable = true;
@@ -76,8 +76,11 @@
           };
           devenv.shells.default = {
             imports = [ inputs.devenvs.flakeModule ];
-            ts.enable = true;
-            ts.biome.enable = true;
+            ts = {
+              enable = true;
+              biome.enable = true;
+              tests.enable = true;
+            };
             nix = {
               enable = true;
               flake.enable = true;
