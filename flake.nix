@@ -12,6 +12,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.devenvs.inputs.devenv.flakeModule
+        inputs.devenvs.flakeModule
       ];
       systems = [
         "x86_64-linux"
@@ -32,7 +33,11 @@
 
               src = ./.;
 
-              npmDepsHash = "sha256-HEmw17uCIi7Yl2fW+M5R5kxJbZfpplTrUs0tubXpm3w=";
+              npmDeps = pkgs.importNpmLock {
+                npmRoot = ./.;
+              };
+
+              inherit (pkgs.importNpmLock) npmConfigHook;
 
               npmPackFlags = [ "--ignore-scripts" ];
               makeCacheWritable = true;
@@ -75,17 +80,26 @@
             };
           };
           devenv.shells.default = {
-            imports = [ inputs.devenvs.flakeModule ];
-            ts.enable = true;
-            ts.biome.enable = true;
-            nix = {
-              enable = true;
-              flake.enable = true;
-              tests.enable = true;
-            };
+            devenvs = {
+              ts = {
+                enable = true;
+                biome.enable = true;
+                tests.enable = true;
+                script-lint.enable = true;
+              };
+              nix = {
+                enable = true;
+                flake.enable = true;
+                tests.enable = true;
+              };
+              tools.just = {
+                enable = true;
+                pre-commit.enable = true;
+              };
 
+            };
             enterShell = ''
-              test src/app/Inter.ttf || cp "${
+              test ! src/app/Inter.ttf || cp "${
                 pkgs.google-fonts.override { fonts = [ "Inter" ]; }
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
               echo "shell pour portfolio"

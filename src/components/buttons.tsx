@@ -31,7 +31,7 @@ export default function Buttons() {
 	}, []);
 
 	return (
-		<div className="space-x-2">
+		<div className="space-x-2" title="buttons">
 			<Button
 				asChild
 				variant={
@@ -44,6 +44,7 @@ export default function Buttons() {
 				className={
 					"hoverable" + " dark:text-black dark:bg-white bg-black text-white"
 				}
+				title="button github"
 			>
 				<Link target="_blank" href="https://github.com/Yvaniak">
 					{/*<Github className="mr-2 h-4 w-4" />*/}
@@ -61,6 +62,7 @@ export default function Buttons() {
 							: "outline"
 				}
 				className={`hoverable${constClassName}`}
+				title="button email"
 			>
 				<Link target="_blank" href="mailto:pro@yvaniak.fr">
 					{/*<Mail className="mr-2 h-4 w-4" />*/}
@@ -78,6 +80,7 @@ export default function Buttons() {
 							: "outline"
 				}
 				className={`hoverable${constClassName}`}
+				title="button discord"
 			>
 				<Link
 					target="_blank"
