@@ -32,7 +32,11 @@
 
               src = ./.;
 
-              npmDepsHash = "sha256-cb5d0hp9RcoW0TXxnvfCKIi6CBC9ppbpExcbC5G0drI=";
+              npmDeps = pkgs.importNpmLock {
+                npmRoot = ./.;
+              };
+
+              inherit (pkgs.importNpmLock) npmConfigHook;
 
               npmPackFlags = [ "--ignore-scripts" ];
               makeCacheWritable = true;
