@@ -99,7 +99,7 @@
 
             };
             enterShell = ''
-              test src/app/Inter.ttf || cp "${
+              test ! src/app/Inter.ttf || cp "${
                 pkgs.google-fonts.override { fonts = [ "Inter" ]; }
               }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
               echo "shell pour portfolio"
