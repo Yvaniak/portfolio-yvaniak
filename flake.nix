@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     devenvs.url = "github:yvaniak/devenvs";
+    devenvs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -23,6 +24,7 @@
       perSystem =
         {
           pkgs,
+          config,
           ...
         }:
         {
@@ -90,7 +92,8 @@
               nix = {
                 enable = true;
                 flake.enable = true;
-                tests.enable = true;
+                check.enable = true;
+                check.package = config.packages.default;
               };
               tools.just = {
                 enable = true;
@@ -108,5 +111,6 @@
         };
       flake = {
       };
+      debug = true;
     };
 }

@@ -11,7 +11,6 @@ run:
 
 tests:
   jest
-  nix build
 
 pre-commit-all:
   pre-commit run --all-files
