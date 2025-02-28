@@ -30,10 +30,10 @@
           ...
         }:
         {
-          packages = pkgs.callPackage ./default.nix { filter = inputs.nix-filter.lib; };
+          packages.default = pkgs.callPackage ./default.nix { filter = inputs.nix-filter.lib; };
 
           devenv.shells.default = {
-            devenvs = {
+            mydevenvs = {
               ts = {
                 enable = true;
                 biome.enable = true;
@@ -49,6 +49,7 @@
               tools.just = {
                 enable = true;
                 pre-commit.enable = true;
+                check.enable = true;
               };
 
             };
