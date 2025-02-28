@@ -6,6 +6,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     devenvs.url = "github:yvaniak/devenvs";
     devenvs.inputs.nixpkgs.follows = "nixpkgs";
+    nix-filter.url = "github:numtide/nix-filter";
   };
 
   outputs =
@@ -25,62 +26,12 @@
         {
           pkgs,
           config,
+          lib,
           ...
         }:
         {
-          packages = {
-            default = pkgs.buildNpmPackage {
-              pname = "portfolio-yvaniak";
-              version = "0.1";
+          packages = pkgs.callPackage ./default.nix { filter = inputs.nix-filter.lib; };
 
-              src = ./.;
-
-              npmDeps = pkgs.importNpmLock {
-                npmRoot = ./.;
-              };
-
-              inherit (pkgs.importNpmLock) npmConfigHook;
-
-              npmPackFlags = [ "--ignore-scripts" ];
-              makeCacheWritable = true;
-              npmFlags = [ "--legacy-peer-deps" ];
-
-              NODE_OPTIONS = "--openssl-legacy-provider";
-
-              preBuild = ''
-                cp "${
-                  pkgs.google-fonts.override { fonts = [ "Inter" ]; }
-                }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
-              '';
-
-              postBuild = ''
-                # Add a shebang to the server js file, then patch the shebang.
-                sed -i '1s|^|#!/usr/bin/env node\n|' .next/standalone/server.js
-                patchShebangs .next/standalone/server.js
-              '';
-
-              installPhase = ''
-                runHook preInstall
-
-                mkdir -p $out/{share,bin}
-
-                cp -r .next/standalone $out/share/portfolio-yvaniak/
-                cp -r public $out/share/portfolio-yvaniak/public
-
-                mkdir -p $out/share/portfolio-yvaniak/.next
-                cp -r .next/static $out/share/portfolio-yvaniak/.next/static
-
-                chmod +x $out/share/portfolio-yvaniak/server.js
-
-                makeWrapper $out/share/portfolio-yvaniak/server.js $out/bin/portfolio-yvaniak \
-                  --set-default PORT 3000 \
-
-                runHook postInstall
-              '';
-
-              doDist = false;
-            };
-          };
           devenv.shells.default = {
             devenvs = {
               ts = {
