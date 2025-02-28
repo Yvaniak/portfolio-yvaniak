@@ -6,7 +6,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     devenvs.url = "github:yvaniak/devenvs";
     devenvs.inputs.nixpkgs.follows = "nixpkgs";
-    nix-filter.url = "github:numtide/nix-filter";
   };
 
   outputs =
@@ -26,11 +25,10 @@
         {
           pkgs,
           config,
-          lib,
           ...
         }:
         {
-          packages.default = pkgs.callPackage ./default.nix { filter = inputs.nix-filter.lib; };
+          packages.default = pkgs.callPackage ./default.nix { };
 
           devenv.shells.default = {
             mydevenvs = {

@@ -1,7 +1,6 @@
 {
-  pkgs,
-  lib,
-  filter,
+  pkgs ? import <nixpkgs> { },
+  lib ? pkgs.lib,
   ...
 }:
 
@@ -9,18 +8,18 @@ pkgs.buildNpmPackage {
   pname = "portfolio-yvaniak";
   inherit ((lib.trivial.importJSON ./package.json)) version;
 
-  src = filter {
+  src = lib.fileset.toSource {
     root = ./.;
-    include = [
-      "src"
-      "public"
+    fileset = lib.fileset.unions [
+      ./src
+      ./public
       ./package.json
       ./package-lock.json
       ./.eslintrc.json
-      ./.components.json
+      ./components.json
       ./jest.config.ts
       ./next.config.mjs
-      ./postcc.config.mjs
+      ./postcss.config.mjs
       ./tsconfig.json
     ];
   };
