@@ -57,23 +57,20 @@ pkgs.buildNpmPackage {
     runHook postCheck
   '';
 
-  installPhase = ''
-    runHook preInstall
+  nativeInstallCheckInputs = [
+    pkgs.curl
+    pkgs.killall
+  ];
+  doInstallCheck = true;
+  installCheckPhase = ''
+    runHook preInstallCheck
 
-    mkdir -p $out/{share,bin}
+      node .next/standalone/server.js&
+      sleep 5
+      curl -s localhost:3000 | grep "Contact me"
+      killall "next-server (v15.2.0)"
 
-    cp -r .next/standalone $out/share/portfolio-yvaniak/
-    cp -r public $out/share/portfolio-yvaniak/public
-
-    mkdir -p $out/share/portfolio-yvaniak/.next
-    cp -r .next/static $out/share/portfolio-yvaniak/.next/static
-
-    chmod +x $out/share/portfolio-yvaniak/server.js
-
-    makeWrapper $out/share/portfolio-yvaniak/server.js $out/bin/portfolio-yvaniak \
-      --set-default PORT 3000 \
-
-    runHook postInstall
+    runHook postInstallCheck
   '';
 
   doDist = false;
