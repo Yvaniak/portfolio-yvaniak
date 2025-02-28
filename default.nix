@@ -57,24 +57,5 @@ pkgs.buildNpmPackage {
     runHook postCheck
   '';
 
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/{share,bin}
-
-    cp -r .next/standalone $out/share/portfolio-yvaniak/
-    cp -r public $out/share/portfolio-yvaniak/public
-
-    mkdir -p $out/share/portfolio-yvaniak/.next
-    cp -r .next/static $out/share/portfolio-yvaniak/.next/static
-
-    chmod +x $out/share/portfolio-yvaniak/server.js
-
-    makeWrapper $out/share/portfolio-yvaniak/server.js $out/bin/portfolio-yvaniak \
-      --set-default PORT 3000 \
-
-    runHook postInstall
-  '';
-
   doDist = false;
 }
