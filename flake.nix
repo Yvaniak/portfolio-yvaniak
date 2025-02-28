@@ -4,16 +4,16 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    devenvs.url = "github:yvaniak/devenvs";
-    devenvs.inputs.nixpkgs.follows = "nixpkgs";
+    mydevenvs.url = "github:yvaniak/mydevenvs";
+    mydevenvs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        inputs.devenvs.inputs.devenv.flakeModule
-        inputs.devenvs.flakeModule
+        inputs.mydevenvs.inputs.devenv.flakeModule
+        inputs.mydevenvs.flakeModule
       ];
       systems = [
         "x86_64-linux"
