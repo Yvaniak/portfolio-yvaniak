@@ -48,6 +48,15 @@ pkgs.buildNpmPackage {
     patchShebangs .next/standalone/server.js
   '';
 
+  doCheck = true;
+  checkPhase = ''
+    runHook preCheck
+
+    npx jest
+
+    runHook postCheck
+  '';
+
   installPhase = ''
     runHook preInstall
 
