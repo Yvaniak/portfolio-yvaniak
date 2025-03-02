@@ -8,21 +8,7 @@ pkgs.buildNpmPackage {
   pname = "portfolio-yvaniak";
   inherit ((lib.trivial.importJSON ./package.json)) version;
 
-  src = lib.fileset.toSource {
-    root = ./.;
-    fileset = lib.fileset.unions [
-      ./src
-      ./public
-      ./package.json
-      ./package-lock.json
-      ./.eslintrc.json
-      ./components.json
-      ./jest.config.ts
-      ./next.config.mjs
-      ./postcss.config.mjs
-      ./tsconfig.json
-    ];
-  };
+  src = ./.;
 
   npmDeps = pkgs.importNpmLock {
     npmRoot = ./.;
