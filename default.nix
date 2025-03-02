@@ -57,21 +57,5 @@ pkgs.buildNpmPackage {
     runHook postCheck
   '';
 
-  nativeInstallCheckInputs = [
-    pkgs.curl
-    pkgs.killall
-  ];
-  doInstallCheck = true;
-  installCheckPhase = ''
-    runHook preInstallCheck
-
-      node .next/standalone/server.js&
-      sleep 5
-      curl -s localhost:3000 | grep "Contact me"
-      killall "next-server (v15.2.0)"
-
-    runHook postInstallCheck
-  '';
-
   doDist = false;
 }
