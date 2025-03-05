@@ -40,5 +40,5 @@
 		"jest-environment-jsdom": "^29.7.0",
 		"typescript": "^5.7.2"
 	},
-	"packageManager": "npm@11.1.0"
+	"packageManager": "npm@11.2.0"
 }
