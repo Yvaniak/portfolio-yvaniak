@@ -85,7 +85,7 @@ export default function Buttons() {
 				<Link
 					target="_blank"
 					className="fill-accent-foreground/90 stroke-2 stroke-accent"
-					href="https://discord.com/invite/8Xhvt4cm"
+					href="https://discordapp.com/users/265535185829756929"
 				>
 					{MingcuteDiscordFill({ className: "mr-1" })}
 					Discord
