@@ -24,8 +24,8 @@ export default function Home() {
 							<Buttons />
 						</div>
 				</div>
-				<Cercle />
 				</div>
+				<Cercle />
 				<div>
 					{/* <Arrow /> */}
 				</div>

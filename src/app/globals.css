@@ -148,11 +148,4 @@
 }
 
 @layer components {
-  * {
-    cursor: none;
-  }
-
-  html * {
-    cursor: none;
-  }
 }
