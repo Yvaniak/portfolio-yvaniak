@@ -14,10 +14,10 @@ export default function Carte() {
 	return (
 		<Card className={constClassName}>
 			<CardHeader>
-				<CardTitle>Yvaniak</CardTitle>
+				<CardTitle>Ewen Philippot</CardTitle>
 			</CardHeader>
 			<CardFooter>
-				<p>Software developer</p>
+				<p>Développeur</p>
 			</CardFooter>
 		</Card>
 	);
