@@ -30,10 +30,6 @@
         {
           packages.default = pkgs.callPackage ./default.nix { };
 
-          checks = {
-            respond = pkgs.callPackage ./nix/checks/respond.nix { pkg = config.packages.default; };
-          };
-
           devenv.shells.default = {
             mydevenvs = {
               ts = {

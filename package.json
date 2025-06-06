@@ -2,7 +2,6 @@
 	"name": "portfolio-yvaniak",
 	"version": "0.1.1",
 	"private": true,
-	"bin": ".next/standalone/server.js",
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev -p 9001 --turbopack",
