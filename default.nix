@@ -16,32 +16,7 @@ pkgs.buildNpmPackage {
 
   inherit (pkgs.importNpmLock) npmConfigHook;
 
-  npmPackFlags = [ "--ignore-scripts" ];
-  makeCacheWritable = true;
-  npmFlags = [ "--legacy-peer-deps" ];
-
-  NODE_OPTIONS = "--openssl-legacy-provider";
-
-  preBuild = ''
-    cp "${
-      pkgs.google-fonts.override { fonts = [ "Inter" ]; }
-    }/share/fonts/truetype/Inter[opsz,wght].ttf" src/app/Inter.ttf
+  postInstall = ''
+    cp -rf dist/* $out
   '';
-
-  postBuild = ''
-    # Add a shebang to the server js file, then patch the shebang.
-    sed -i '1s|^|#!/usr/bin/env node\n|' .next/standalone/server.js
-    patchShebangs .next/standalone/server.js
-  '';
-
-  doCheck = true;
-  checkPhase = ''
-    runHook preCheck
-
-    npx jest
-
-    runHook postCheck
-  '';
-
-  doDist = false;
 }
