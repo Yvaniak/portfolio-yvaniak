@@ -28,7 +28,8 @@
           ...
         }:
         {
-          packages.default = pkgs.callPackage ./default.nix { };
+          packages.default = pkgs.callPackage ./nix/default.nix { };
+          packages.serve = pkgs.callPackage ./nix/serve.nix { };
 
           devenv.shells.default = {
             mydevenvs = {

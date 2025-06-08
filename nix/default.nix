@@ -6,12 +6,12 @@
 
 pkgs.buildNpmPackage {
   pname = "portfolio-yvaniak";
-  inherit ((lib.trivial.importJSON ./package.json)) version;
+  inherit ((lib.trivial.importJSON ../package.json)) version;
 
-  src = ./.;
+  src = ./..;
 
   npmDeps = pkgs.importNpmLock {
-    npmRoot = ./.;
+    npmRoot = ./..;
   };
 
   inherit (pkgs.importNpmLock) npmConfigHook;
@@ -19,4 +19,5 @@ pkgs.buildNpmPackage {
   postInstall = ''
     cp -rf dist/* $out
   '';
+
 }
