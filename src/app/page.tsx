@@ -1,9 +1,12 @@
-import Arrow from "@/components/arrow";
-import Buttons from "@/components/buttons";
-import Carte from "@/components/carte";
+import Arrow from "@/app/arrow";
+import Buttons from "@/app/buttons";
+import Carte from "@/app/carte-presentation";
 
-import Cercle from "@/components/cercle";
-import ContactCarte from "@/components/contact-carte";
+import Cercle from "@/app/cercle";
+import ContactCarte from "@/app/contact-carte";
+import { Card, CardContent } from "@/components/ui/card";
+import { constClassName } from "@/lib/utils";
+import Link from "next/link";
 
 // import { ModeToggle } from "@/components/themeButton";
 

@@ -47,7 +47,29 @@ export default function Arrow() {
 				<CardHeader>
 					{MingcuteArrowRightFill( {})}
 				</CardHeader>
+
+				<header>
+      <nav className="p-4">
+        <ul className="container flex gap-8">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/test">Test</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
 			</Card>
+				{/* <header>
+					<nav className="p-4">
+						<ul className="container flex gap-8">
+							<li>
+								<Link href="/test">test</Link>
+							</li>
+						</ul>
+					</nav>
+				</header> */}
 		</div>
 	);
 }
