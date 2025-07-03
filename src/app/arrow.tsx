@@ -1,35 +1,15 @@
 "use client";
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-
 //icons
-import React from "react";
-
+import { useEffect, useState } from "react";
+import { MingcuteArrowRightFill } from "@/components/icons";
+import { Card, CardHeader } from "@/components/ui/card";
 import { constClassName } from "@/lib/utils";
 
-import {
-	MingcuteDiscordFill,
-	MingcuteGithubFill,
-	MingcuteMailFill,
-	MingcuteArrowRightFill,
-} from "@/components/icons";
-
-import {
-	Card,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-	CardContent as _CardContent,
-	CardDescription as _CardDescription,
-} from "@/components/ui/card";
-
-
 export default function Arrow() {
-	const { resolvedTheme } = useTheme();
-	const [mounted, setMounted] = useState(false);
+	useTheme();
+	const [, setMounted] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
@@ -44,24 +24,22 @@ export default function Arrow() {
 	return (
 		<div className="space-x-2" title="flèche">
 			<Card className={constClassName}>
-				<CardHeader>
-					{MingcuteArrowRightFill( {})}
-				</CardHeader>
+				<CardHeader>{MingcuteArrowRightFill()}</CardHeader>
 
 				<header>
-      <nav className="p-4">
-        <ul className="container flex gap-8">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/test">Test</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+					<nav className="p-4">
+						<ul className="container flex gap-8">
+							<li>
+								<Link href="/">Home</Link>
+							</li>
+							<li>
+								<Link href="/test">Test</Link>
+							</li>
+						</ul>
+					</nav>
+				</header>
 			</Card>
-				{/* <header>
+			{/* <header>
 					<nav className="p-4">
 						<ul className="container flex gap-8">
 							<li>

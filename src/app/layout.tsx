@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/theme-provider";
-
 import { Analytics } from "@vercel/analytics/react";
-
 import localFont from "next/font/local";
 import type React from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+
 const inter = localFont({ src: "./Inter.ttf" });
 
 export const metadata: Metadata = {

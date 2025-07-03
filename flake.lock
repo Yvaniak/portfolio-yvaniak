@@ -18,9 +18,18 @@
     },
     "cachix": {
       "inputs": {
-        "devenv": ["mydevenvs", "devenv"],
-        "flake-compat": ["mydevenvs", "devenv"],
-        "git-hooks": ["mydevenvs", "devenv"],
+        "devenv": [
+          "mydevenvs",
+          "devenv"
+        ],
+        "flake-compat": [
+          "mydevenvs",
+          "devenv"
+        ],
+        "git-hooks": [
+          "mydevenvs",
+          "devenv"
+        ],
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -44,7 +53,10 @@
         "flake-compat": "flake-compat",
         "git-hooks": "git-hooks",
         "nix": "nix",
-        "nixpkgs": ["mydevenvs", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1749243968,
@@ -96,7 +108,12 @@
     },
     "flake-parts_2": {
       "inputs": {
-        "nixpkgs-lib": ["mydevenvs", "devenv", "nix", "nixpkgs"]
+        "nixpkgs-lib": [
+          "mydevenvs",
+          "devenv",
+          "nix",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1712014858,
@@ -132,7 +149,11 @@
     },
     "flake-parts_4": {
       "inputs": {
-        "nixpkgs-lib": ["mydevenvs", "mkdocs-flake", "nixpkgs"]
+        "nixpkgs-lib": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1743550720,
@@ -168,9 +189,16 @@
     },
     "git-hooks": {
       "inputs": {
-        "flake-compat": ["mydevenvs", "devenv"],
+        "flake-compat": [
+          "mydevenvs",
+          "devenv"
+        ],
         "gitignore": "gitignore",
-        "nixpkgs": ["mydevenvs", "devenv", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "devenv",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1746537231,
@@ -188,7 +216,12 @@
     },
     "gitignore": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "devenv", "git-hooks", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "devenv",
+          "git-hooks",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1709087332,
@@ -223,7 +256,10 @@
     "mkdocs-flake": {
       "inputs": {
         "flake-parts": "flake-parts_4",
-        "nixpkgs": ["mydevenvs", "nixpkgs"],
+        "nixpkgs": [
+          "mydevenvs",
+          "nixpkgs"
+        ],
         "poetry2nix": "poetry2nix",
         "pyproject-build-systems": "pyproject-build-systems",
         "pyproject-nix": "pyproject-nix",
@@ -249,14 +285,16 @@
         "devenv": "devenv",
         "flake-parts": "flake-parts_3",
         "mkdocs-flake": "mkdocs-flake",
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1751572409,
-        "narHash": "sha256-IKONWDXTnN+Mdx4TEoZho7zs4alJua3oNE9qOzQPCZ8=",
+        "lastModified": 1751574520,
+        "narHash": "sha256-GOo+67XFV6ficMt/cen2mXweaTvvQ2XKqXR/UzShFIA=",
         "owner": "yvaniak",
         "repo": "mydevenvs",
-        "rev": "916a85918108ab01dc9e2d05b172fdbf98f05757",
+        "rev": "42bb069f00457674964476b7a05fed39a86c13f2",
         "type": "github"
       },
       "original": {
@@ -267,13 +305,25 @@
     },
     "nix": {
       "inputs": {
-        "flake-compat": ["mydevenvs", "devenv"],
+        "flake-compat": [
+          "mydevenvs",
+          "devenv"
+        ],
         "flake-parts": "flake-parts_2",
         "libgit2": "libgit2",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-23-11": ["mydevenvs", "devenv"],
-        "nixpkgs-regression": ["mydevenvs", "devenv"],
-        "pre-commit-hooks": ["mydevenvs", "devenv"]
+        "nixpkgs-23-11": [
+          "mydevenvs",
+          "devenv"
+        ],
+        "nixpkgs-regression": [
+          "mydevenvs",
+          "devenv"
+        ],
+        "pre-commit-hooks": [
+          "mydevenvs",
+          "devenv"
+        ]
       },
       "locked": {
         "lastModified": 1745930071,
@@ -292,7 +342,12 @@
     },
     "nix-github-actions": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "poetry2nix", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "poetry2nix",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1729742964,
@@ -390,7 +445,11 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nix-github-actions": "nix-github-actions",
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "nixpkgs"],
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "nixpkgs"
+        ],
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix"
       },
@@ -410,9 +469,21 @@
     },
     "pyproject-build-systems": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "nixpkgs"],
-        "pyproject-nix": ["mydevenvs", "mkdocs-flake", "pyproject-nix"],
-        "uv2nix": ["mydevenvs", "mkdocs-flake", "uv2nix"]
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "nixpkgs"
+        ],
+        "pyproject-nix": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "pyproject-nix"
+        ],
+        "uv2nix": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "uv2nix"
+        ]
       },
       "locked": {
         "lastModified": 1744599653,
@@ -430,7 +501,11 @@
     },
     "pyproject-nix": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1746540146,
@@ -485,7 +560,12 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "poetry2nix", "nixpkgs"]
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "poetry2nix",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1730120726,
@@ -503,8 +583,16 @@
     },
     "uv2nix": {
       "inputs": {
-        "nixpkgs": ["mydevenvs", "mkdocs-flake", "nixpkgs"],
-        "pyproject-nix": ["mydevenvs", "mkdocs-flake", "pyproject-nix"]
+        "nixpkgs": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "nixpkgs"
+        ],
+        "pyproject-nix": [
+          "mydevenvs",
+          "mkdocs-flake",
+          "pyproject-nix"
+        ]
       },
       "locked": {
         "lastModified": 1747949765,
