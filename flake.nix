@@ -35,9 +35,7 @@
             mydevenvs = {
               ts = {
                 enable = true;
-                biome.enable = true;
                 tests.enable = true;
-                script-lint.enable = true;
               };
               nix = {
                 enable = true;
