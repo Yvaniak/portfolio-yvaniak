@@ -1,20 +1,15 @@
 "use client";
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-
 //icons
-import React from "react";
-
-import { constClassName } from "@/lib/utils";
-
+import { useEffect, useState } from "react";
 import {
 	MingcuteDiscordFill,
 	MingcuteGithubFill,
 	MingcuteMailFill,
 } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import { constClassName } from "@/lib/utils";
 
 export default function Buttons() {
 	const { resolvedTheme } = useTheme();
